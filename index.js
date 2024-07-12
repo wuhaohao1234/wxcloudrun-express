@@ -56,7 +56,7 @@ app.post("/api/classes", async (req, res) => {
   })
 })
 
-app.get("/api/reserve", async (req, res) => {
+app.get("/api/reservation", async (req, res) => {
   const result = await Reserve.findAll();
   res.send({
     code: 0,
@@ -64,7 +64,7 @@ app.get("/api/reserve", async (req, res) => {
   })
 })
 
-app.post("/api/reserve", async (req, res) => {
+app.post("/api/reservation", async (req, res) => {
   const result = await Reserve.create({
     title: req.body.title,
     desc: req.body.desc,
@@ -73,14 +73,6 @@ app.post("/api/reserve", async (req, res) => {
   res.send({
     code: 0,
     data: result
-  })
-})
-
-// 获取openid
-app.get("/api/open_id", async (req,res) => {
-  res.send({
-    code: 0,
-    data: req
   })
 })
 
