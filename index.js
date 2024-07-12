@@ -77,7 +77,7 @@ app.post("/api/reserve", async (req, res) => {
 })
 
 // 获取openid
-app.get("/api/openid", async (req,res) => {
+app.get("/api/open_id", async (req,res) => {
   res.send({
     code: 0,
     data: req
