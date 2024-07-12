@@ -2,7 +2,7 @@ const path = require("path");
 const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
-const { init: initDB, Counter } = require("./db");
+const { init: initDB, Counter, Classes, Reserve } = require("./db");
 
 const logger = morgan("tiny");
 
@@ -32,6 +32,57 @@ app.post("/api/count", async (req, res) => {
     data: await Counter.count(),
   });
 });
+
+app.get("/api/classes", async (req, res) => {
+  const result = await Classes.findAll();
+  res.send({
+    code: 0,
+    data: result
+  })
+})
+
+app.post("/api/classes", async (req, res) => {
+  const result = await Classes.create({
+    title: req.body.title,
+    desc: req.body.desc,
+    question: req.body.question,
+    imgUrls: req.body.imgUrls,
+    fileUrls: req.body.fileUrls,
+    type: req.body.type
+  })
+  res.send({
+    code: 0,
+    data: result
+  })
+})
+
+app.get("/api/reserve", async (req, res) => {
+  const result = await Reserve.findAll();
+  res.send({
+    code: 0,
+    data: result
+  })
+})
+
+app.post("/api/reserve", async (req, res) => {
+  const result = await Reserve.create({
+    title: req.body.title,
+    desc: req.body.desc,
+    userId: req.body.userId
+  })
+  res.send({
+    code: 0,
+    data: result
+  })
+})
+
+// 获取openid
+app.get("/api/openid", async (req,res) => {
+  res.send({
+    code: 0,
+    data: req
+  })
+})
 
 // 获取计数
 app.get("/api/count", async (req, res) => {
