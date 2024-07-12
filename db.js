@@ -47,7 +47,7 @@ const Classes = sequelize.define("Classes", {
   }
 });
 
-const Reserve = sequelize.define("Reserve", {
+const Reserve = sequelize.define("Reserves", {
   title: {
     type: Sequelize.STRING,
     allowNull: true 
