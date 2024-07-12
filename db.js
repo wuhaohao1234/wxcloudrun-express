@@ -57,7 +57,7 @@ const Reserve = sequelize.define("Reserves", {
     allowNull: true 
   },
   userId: {
-    type: Sequelize.NUMBER,
+    type: Sequelize.STRING,
     allowNull: true 
   }
 });
